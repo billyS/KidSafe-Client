@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">KidSafe+</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="title_activity_main2" translatable="false">MainActivity</string>
+    <string name="title_activity_my_menu" translatable="false">MyMenu</string>
+    <string name="title_menu_item1" translatable="false">About Us</string>
+    <string name="title_menu_item2">Preferences</string>
+    <string name="title_menu_item3">Exit</string>
+    <string name="map_menu_daylocations">Show Daily Locations</string>
+    <string name="map_menu_weeklocations">Show Weekly Locations</string>
+    <string name="map_menu_geofence">Set a Restricted Zone</string>
+    <string name="GCMTV">No info.</string>
+    <string name="about_us">"testing what show up here will change it to something more relevant to the app"</string>
+   
+</resources>
