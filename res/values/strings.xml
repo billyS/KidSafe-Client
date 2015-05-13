@@ -13,6 +13,7 @@
     <string name="map_menu_weeklocations">Show Weekly Locations</string>
     <string name="map_menu_geofence">Set a Restricted Zone</string>
     <string name="GCMTV">No info.</string>
-    <string name="about_us">"testing what show up here will change it to something more relevant to the app"</string>
+    <string name="about_us">"KidSafe+ is designed for parents who want to ensure they can find their children whenever they need to. 
+        It is not to be used by jealous boyfriends and girlfriend to spy on their partners (although it would work perfectly for that purpose)"</string>
    
 </resources>
