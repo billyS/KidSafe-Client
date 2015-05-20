@@ -2241,7 +2241,7 @@ containing a value of this type.
         public static final int gtm_analytics=0x7f050000;
     }
     public static final class string {
-        public static final int GCMTV=0x7f07003e;
+        public static final int GCMTV=0x7f07003f;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f070024;
@@ -2298,9 +2298,9 @@ containing a value of this type.
         /**  Content description for the Toolbar icon used to collapse an expanded action mode. [CHAR LIMIT=NONE] 
          */
         public static final int abc_toolbar_collapse_description=0x7f070027;
-        public static final int about_us=0x7f07003f;
+        public static final int about_us=0x7f070040;
         public static final int accept=0x7f070002;
-        public static final int action_settings=0x7f070035;
+        public static final int action_settings=0x7f070036;
         public static final int app_name=0x7f070033;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
@@ -2404,17 +2404,19 @@ containing a value of this type.
         public static final int create_calendar_message=0x7f070005;
         public static final int create_calendar_title=0x7f070004;
         public static final int decline=0x7f070003;
-        public static final int hello_world=0x7f070034;
-        public static final int map_menu_daylocations=0x7f07003b;
-        public static final int map_menu_geofence=0x7f07003d;
-        public static final int map_menu_weeklocations=0x7f07003c;
+        public static final int geofence_btn_txt=0x7f070041;
+        public static final int hello_world=0x7f070035;
+        public static final int logo_description=0x7f070034;
+        public static final int map_menu_daylocations=0x7f07003c;
+        public static final int map_menu_geofence=0x7f07003e;
+        public static final int map_menu_weeklocations=0x7f07003d;
         public static final int store_picture_message=0x7f070001;
         public static final int store_picture_title=0x7f070000;
-        public static final int title_activity_main2=0x7f070036;
-        public static final int title_activity_my_menu=0x7f070037;
-        public static final int title_menu_item1=0x7f070038;
-        public static final int title_menu_item2=0x7f070039;
-        public static final int title_menu_item3=0x7f07003a;
+        public static final int title_activity_main2=0x7f070037;
+        public static final int title_activity_my_menu=0x7f070038;
+        public static final int title_menu_item1=0x7f070039;
+        public static final int title_menu_item2=0x7f07003a;
+        public static final int title_menu_item3=0x7f07003b;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/map"
         android:layout_marginTop="29dp" />
 
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Save Restricted Zone" />
+        android:layout_alignParentStart="true"
+        android:text="@string/geofence_btn_txt" />
 
 </RelativeLayout> 

@@ -46,7 +46,12 @@ public class DayLocationsMenu extends Activity{
 	    private ArrayList<String> list = null;
 	    private InputStream is = null;
 	    boolean toReturn = false;
-	 
+	    
+	    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy.MM.dd");
+	    Date now = new Date();
+	    String strDate = sdfDate.format(now);
+	    StringBuilder sb = new StringBuilder();
+	    
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -75,7 +80,9 @@ public class DayLocationsMenu extends Activity{
 		            	
 		            	switch (childPosition) {
 		            	case 0:
-		            		getLocations("mon");
+		            		sb.append("Mon ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 							
 							}
@@ -87,7 +94,6 @@ public class DayLocationsMenu extends Activity{
 									location = locations.getJSONObject(i).toString();
 									list.add(location);
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 									
@@ -98,7 +104,9 @@ public class DayLocationsMenu extends Activity{
 			    		    startActivity(intent);
 							break;
 						case 1:
-							getLocations("tue");
+							sb.append("Tue ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 							
 							}
@@ -121,7 +129,9 @@ public class DayLocationsMenu extends Activity{
 			    		    startActivity(intent);
 							break;
 						case 2:
-							getLocations("wed");
+							sb.append("Wed ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 									
 							}
@@ -145,7 +155,9 @@ public class DayLocationsMenu extends Activity{
 							break;
 							
 						case 3:
-							getLocations("wed");
+							sb.append("Thu ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 									
 							}
@@ -168,7 +180,9 @@ public class DayLocationsMenu extends Activity{
 			    		    startActivity(intent);
 							break;
 						case 4:
-							getLocations("thu");
+							sb.append("Fri ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 									
 							}
@@ -191,7 +205,9 @@ public class DayLocationsMenu extends Activity{
 			    		    startActivity(intent);
 							break;
 						case 5:
-							getLocations("fri");
+							sb.append("Sat ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 									
 							}
@@ -214,30 +230,9 @@ public class DayLocationsMenu extends Activity{
 			    		    startActivity(intent);
 							break;
 						case 6:
-							getLocations("sat");
-							 while(locations==null) {
-									
-							}
-							//Log.i("INFO",locations.getJSONObject(0).toString());
-							//Log.i("INFO",String.valueOf(locations.length()));
-							for(int i =0;i<=locations.length();i++) {
-								String location;
-								try {
-									location = locations.getJSONObject(i).toString();
-									list.add(location);
-								} catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-										
-							}
-							b.putStringArrayList("locations", list);
-							
-			                intent.putExtra("locations", b);
-			    		    startActivity(intent);
-							break;
-						case 7:
-							getLocations("sun");
+							sb.append("Sun ");
+		            		sb.append(strDate);
+		            		getLocations(sb.toString());
 							 while(locations==null) {
 									
 							}

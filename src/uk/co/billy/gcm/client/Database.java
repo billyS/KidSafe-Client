@@ -63,7 +63,7 @@ public class Database{
 		            	}
 		            	
 		            	JSONObject json_data = new JSONObject(result);
-		            	code=(json_data.getInt("code"));
+		            	//code=(json_data.getInt("code"));
 		            	is.close();
 		            	result = sb.toString();
 		            	Log.e("INFO", "convert to JSON  connection success ");

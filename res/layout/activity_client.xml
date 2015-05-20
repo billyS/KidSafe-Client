@@ -7,6 +7,7 @@
 
 	<ImageView
 	    android:id="@+id/frameImage"
+	    android:contentDescription="@string/logo_description"
 	    android:layout_width="352dp"
 	    android:layout_height="334dp"
 	    android:clickable="false"

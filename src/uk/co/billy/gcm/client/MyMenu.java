@@ -45,7 +45,6 @@ public class MyMenu extends Activity {
 	private String result= null;
 	private String line = null;
 	private JSONArray locations = null;
-	private JSONArray locations2 = null;
     private ArrayList<String> list = null;
     private InputStream is = null;
     boolean toReturn = false;
@@ -82,13 +81,7 @@ public class MyMenu extends Activity {
 						 while(locations==null) {
 						
 						}
-						 try {
-							Log.i("INFO",locations.getJSONObject(0).toString());
-						} catch (JSONException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						    Log.i("INFO",String.valueOf(locations.length()));
+						   
 						for(int i =0;i<=locations.length();i++) {
 							String location;
 							try {
