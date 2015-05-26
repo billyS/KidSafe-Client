@@ -1,9 +1,12 @@
 package uk.co.billy.gcm.client;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -38,7 +41,6 @@ public class MessageHandler extends IntentService {
     private Handler handler;
     public static final int NOTIFICATION_ID = 1;
     private  NotificationManagerCompat mNotificationManager;
-    private NotificationCompat.Builder builder;
     private JSONObject location = null;
     
     public MessageHandler() {
@@ -50,7 +52,7 @@ public class MessageHandler extends IntentService {
         // TODO Auto-generated method stub
         super.onCreate();
         handler = new Handler();
-        mNotificationManager = NotificationManagerCompat.from(this);
+        
     }
     
     @Override
@@ -62,16 +64,8 @@ public class MessageHandler extends IntentService {
         
        mesT = extras.getString("title");
        mes = extras.getString("message");
-       StringBuilder sb = new StringBuilder();
-       try {
-			sb.append(getCurrentLocation().getString("longitude"));
-			sb.append(" ");
-		    sb.append(getCurrentLocation().getString("latitude"));
-		    sendNotification(sb.toString());
-       } catch (JSONException e) {
-		e.printStackTrace();
-       }
-      
+       
+       sendNotification("KidSafe+ Alert: " + "\n"+ mesT + "\n"+ mes);
        showToast();
        Log.i("GCM", "Received : (" +messageType+")  "+extras.getString("title") + " " + extras.getString("message") + " " + extras.getString("action"));
        MessageReceiver.completeWakefulIntent(intent);
@@ -84,28 +78,15 @@ public class MessageHandler extends IntentService {
                 Toast.makeText(getApplicationContext(),mesT+" "+mes, Toast.LENGTH_LONG).show();
             }
          });
-
     }
     
     private void sendNotification(String msg) {
     	Context context = getApplicationContext();
-    	
+    	String location="";
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, MyMenu.class), 0);
-        String test[] = msg.split(" ");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
-        Uri geoUri = Uri.parse("geo:" + test[0]+","+test[1]);
-        mapIntent.setData(geoUri);
-        PendingIntent mapPendingIntent = PendingIntent.getActivity(this, 0, mapIntent, 0);
+           
         
-        
-     // Create the action
-        NotificationCompat.Action action =  new NotificationCompat.Action.Builder(R.drawable.kidsafe, getString(R.string.app_name), 
-        		mapPendingIntent)
-                .build();
-
-        
-        
-		Notification noti = new NotificationCompat.Builder(this)
+		Notification noti = new NotificationCompat.Builder(context)
        .setContentTitle("Proximity Alert!: ")
        .setContentText(msg)
        .setWhen(System.currentTimeMillis())
@@ -115,9 +96,10 @@ public class MessageHandler extends IntentService {
        .setSmallIcon(R.drawable.kidsafe)
        .setAutoCancel(true)
        .setContentIntent(contentIntent)
-       .extend(new NotificationCompat.WearableExtender())
-       .addAction(action)
+       //.extend(new WearableExtender().addAction(action)
        .build();
+		
+		mNotificationManager = NotificationManagerCompat.from(this);
        
         mNotificationManager.notify(NOTIFICATION_ID, noti);
     }
@@ -126,6 +108,10 @@ public class MessageHandler extends IntentService {
 		 new AsyncTask<String, Integer, String>() { 
 			 @Override
 	            protected String doInBackground(String... params) {
+				 
+				 
+				// System.out.println(response);
+				 
 	                String msg = "";
 	                HttpClient httpclient =null;
 	                HttpPost httppost = null;
@@ -137,6 +123,7 @@ public class MessageHandler extends IntentService {
 	                String line="";
 	                JSONArray locations = null;
 	                try {
+	                		
 							httpclient = new DefaultHttpClient();
 					        httppost = new HttpPost("http://itsuite.it.brighton.ac.uk/ws52/getCurrentLocation.php");
 					        response = httpclient.execute(httppost);

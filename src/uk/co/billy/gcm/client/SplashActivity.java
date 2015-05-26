@@ -124,7 +124,9 @@ public class SplashActivity extends Activity {
 			return false;
 		} else{
 			try {
-				
+				if(deviceImei==null){
+					deviceImei ="000000000000000";
+				}
 				jObj = new JSONArray(result);
 				
 				for(int i=0; i < jObj.length(); i++) {

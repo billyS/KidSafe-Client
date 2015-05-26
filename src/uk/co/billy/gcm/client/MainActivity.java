@@ -98,10 +98,10 @@ public class MainActivity extends Activity {
 						 
 						// Move the camera instantly to hamburg with a zoom of 15. 
 						   
-						    map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
+						    map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 10));
 
 						    // Zoom in, animating the camera.
-						    map.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+						    map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 				}
 				
 			}
@@ -110,5 +110,14 @@ public class MainActivity extends Activity {
 		Log.e("Fail", "no bundle extra");
 	}
 		}
+	
+	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+	}
+	
+	
 	                
 }
